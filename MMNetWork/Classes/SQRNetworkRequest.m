@@ -258,7 +258,7 @@ static AFNetworkReachabilityStatus  networkStatus;
     switch (type) {
         case GET: {
             
-            [manager GET:urlString parameters:isPhp ? parameterPhp : parameters  progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [manager GET:urlString parameters:isPhp ? parameterPhp : parameters  headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 REQUEST_SUCCEED_OPERATION_BLCOK(success);
                 SAVECACHEWITH_CACHEWAY_MYCHAHE_KEY(policy,myCache,cacheKey);
@@ -272,8 +272,8 @@ static AFNetworkReachabilityStatus  networkStatus;
             break;
             
         case POST: {
-            
-            [manager POST:urlString parameters:isPhp ? parameterPhp : parameters  progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+            [manager POST:urlString parameters:isPhp ? parameterPhp : parameters  headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 REQUEST_SUCCEED_OPERATION_BLCOK(success);
                 SAVECACHEWITH_CACHEWAY_MYCHAHE_KEY(policy,myCache,cacheKey);
@@ -287,7 +287,7 @@ static AFNetworkReachabilityStatus  networkStatus;
             break;
             
         case PUT: {
-            [manager PUT:urlString parameters:isPhp ? parameterPhp : parameters  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [manager PUT:urlString parameters:isPhp ? parameterPhp : parameters  headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 REQUEST_SUCCEED_OPERATION_BLCOK(success);
                 
@@ -300,7 +300,7 @@ static AFNetworkReachabilityStatus  networkStatus;
             break;
             
         case DELETE: {
-            [manager DELETE:urlString parameters:isPhp ? parameterPhp : parameters  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [manager DELETE:urlString parameters:isPhp ? parameterPhp : parameters headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 REQUEST_SUCCEED_OPERATION_BLCOK(success);
                 
@@ -313,7 +313,7 @@ static AFNetworkReachabilityStatus  networkStatus;
             break;
             
         case PATCH: {
-            [manager PATCH:urlString parameters:isPhp ? parameterPhp : parameters  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [manager PATCH:urlString parameters:isPhp ? parameterPhp : parameters headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 REQUEST_SUCCEED_OPERATION_BLCOK(success);
                 
@@ -530,7 +530,7 @@ static AFNetworkReachabilityStatus  networkStatus;
     }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-    [manager POST:urlString parameters:parameters  constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:urlString parameters:parameters  headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         if (imageArray.count == 0) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -587,7 +587,7 @@ static AFNetworkReachabilityStatus  networkStatus;
         return;
     }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:urlString parameters:parameters headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
         formatter.dateFormat=@"yyyyMMddHHmmss";
@@ -640,7 +640,7 @@ static AFNetworkReachabilityStatus  networkStatus;
         return;
     }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:urlString parameters:parameters headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
         formatter.dateFormat=@"yyyyMMddHHmmss";
